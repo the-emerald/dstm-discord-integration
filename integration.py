@@ -40,10 +40,8 @@ while True:
                 "start": start_time
             },
             "assets": {
-                "small_text": "Text for small_image",
-                "small_image": "img_small",
-                "large_text": "Text for large_image",
-                "large_image": "img_large"
+                "large_text": "Hard at work!",
+                "large_image": "mining"
             }
         }
     rpc_obj.set_activity(activity)
