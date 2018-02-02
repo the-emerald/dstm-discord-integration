@@ -20,7 +20,8 @@ def fetch_data():
         quit()
 
 print("DSTM Miner Integration for Discord")
-print("Written by suclearnub\n")
+print("Written by suclearnub")
+print("Donate: 0x93F69Af0e0E12AE0A3217dC61910d4479E4eC3d2 / tips.emmypony.eth\n")
 client_id = '405940771791962121' #Your application's client ID as a string. (This isn't a real client ID)
 rpc_obj = rpc.DiscordIpcClient.for_platform(client_id) #Send the client ID to the rpc module
 print("RPC connection successful.")
