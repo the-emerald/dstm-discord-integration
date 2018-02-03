@@ -14,7 +14,7 @@ def fetch_data():
         message = str(e)
     try:
         data = message.split("(")[2][1:-6]
-        return data
+        return json.loads(data)
     except Exception:
         print("Can't find DSTM telemetry data! Are you sure the --telemetry flag is set on the miner? Is the miner on?")
         quit()
@@ -29,14 +29,11 @@ print("RPC connection successful.")
 time.sleep(5)
 start_time = time.time()
 while True:
-    try:
-        data = json.loads(fetch_data())
-    except Exception:
-        print("Can't find DSTM telemetry data! Are you sure the --telemetry flag is set on the miner? Is the miner on?")
-        quit()
+    data = fetch_data()
     activity = {
-            "state": "Mining on " + data["server"],
-            "details": "Speed: " + "{:.0f}".format(data["result"][0]["avg_sol_ps"]) + " Sol/s",
+#            "state": "Mining on " + data["server"],
+            "state": "Power: " + "{:.0f}".format(data["result"][0]["power_usage"]) + " W",
+            "details": "Speed: " + "{:.0f}".format(data["result"][0]["sol_ps"]) + " Sol/s",
             "timestamps": {
                 "start": start_time
             },
